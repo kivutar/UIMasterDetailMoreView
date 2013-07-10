@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *view1;
@@ -50,6 +51,20 @@ int state;
     _view2 = [[UITableView alloc] initWithFrame:state0view2];
     _view3 = [[UITableView alloc] initWithFrame:state0view3];
     
+    _view2.layer.masksToBounds = NO;
+    _view2.layer.shadowRadius = 5;
+    _view2.layer.shadowOpacity = 0.5;
+    _view2.layer.shouldRasterize = YES;
+    _view2.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    _view2.layer.shadowPath = [UIBezierPath bezierPathWithRect:_view2.bounds].CGPath;
+    
+    _view3.layer.masksToBounds = NO;
+    _view3.layer.shadowRadius = 5;
+    _view3.layer.shadowOpacity = 0.5;
+    _view3.layer.shouldRasterize = YES;
+    _view3.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    _view3.layer.shadowPath = [UIBezierPath bezierPathWithRect:_view2.bounds].CGPath;
+    
     _view1.dataSource = self;
     _view2.dataSource = self;
     _view3.dataSource = self;
@@ -62,8 +77,8 @@ int state;
     _view2.bounces = false;
     _view3.bounces = false;
     
-    _view1.backgroundColor = [UIColor grayColor];
-    _view2.backgroundColor = [UIColor blueColor];
+    //_view1.backgroundColor = [UIColor grayColor];
+    //_view2.backgroundColor = [UIColor blueColor];
 
     state = 0;
 
