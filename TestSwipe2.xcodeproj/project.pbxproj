@@ -1,0 +1,305 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		20D5DCB5178D64EA0040B2E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D5DCB4178D64EA0040B2E7 /* UIKit.framework */; };
+		20D5DCB7178D64EA0040B2E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D5DCB6178D64EA0040B2E7 /* Foundation.framework */; };
+		20D5DCB9178D64EA0040B2E7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D5DCB8178D64EA0040B2E7 /* CoreGraphics.framework */; };
+		20D5DCBF178D64EA0040B2E7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20D5DCBD178D64EA0040B2E7 /* InfoPlist.strings */; };
+		20D5DCC1178D64EA0040B2E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5DCC0178D64EA0040B2E7 /* main.m */; };
+		20D5DCC5178D64EA0040B2E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5DCC4178D64EA0040B2E7 /* AppDelegate.m */; };
+		20D5DCC7178D64EA0040B2E7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D5DCC6178D64EA0040B2E7 /* Default.png */; };
+		20D5DCC9178D64EA0040B2E7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D5DCC8178D64EA0040B2E7 /* Default@2x.png */; };
+		20D5DCCB178D64EA0040B2E7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D5DCCA178D64EA0040B2E7 /* Default-568h@2x.png */; };
+		20D5DCCE178D64EA0040B2E7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5DCCD178D64EA0040B2E7 /* ViewController.m */; };
+		20D5DCD1178D64EA0040B2E7 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D5DCCF178D64EA0040B2E7 /* ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		20D5DCB1178D64EA0040B2E7 /* TestSwipe2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestSwipe2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		20D5DCB4178D64EA0040B2E7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		20D5DCB6178D64EA0040B2E7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		20D5DCB8178D64EA0040B2E7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		20D5DCBC178D64EA0040B2E7 /* TestSwipe2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TestSwipe2-Info.plist"; sourceTree = "<group>"; };
+		20D5DCBE178D64EA0040B2E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		20D5DCC0178D64EA0040B2E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		20D5DCC2178D64EA0040B2E7 /* TestSwipe2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestSwipe2-Prefix.pch"; sourceTree = "<group>"; };
+		20D5DCC3178D64EA0040B2E7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		20D5DCC4178D64EA0040B2E7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		20D5DCC6178D64EA0040B2E7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		20D5DCC8178D64EA0040B2E7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		20D5DCCA178D64EA0040B2E7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		20D5DCCC178D64EA0040B2E7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		20D5DCCD178D64EA0040B2E7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		20D5DCD0178D64EA0040B2E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		20D5DCAE178D64EA0040B2E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20D5DCB5178D64EA0040B2E7 /* UIKit.framework in Frameworks */,
+				20D5DCB7178D64EA0040B2E7 /* Foundation.framework in Frameworks */,
+				20D5DCB9178D64EA0040B2E7 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		20D5DCA8178D64EA0040B2E7 = {
+			isa = PBXGroup;
+			children = (
+				20D5DCBA178D64EA0040B2E7 /* TestSwipe2 */,
+				20D5DCB3178D64EA0040B2E7 /* Frameworks */,
+				20D5DCB2178D64EA0040B2E7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		20D5DCB2178D64EA0040B2E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				20D5DCB1178D64EA0040B2E7 /* TestSwipe2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20D5DCB3178D64EA0040B2E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				20D5DCB4178D64EA0040B2E7 /* UIKit.framework */,
+				20D5DCB6178D64EA0040B2E7 /* Foundation.framework */,
+				20D5DCB8178D64EA0040B2E7 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		20D5DCBA178D64EA0040B2E7 /* TestSwipe2 */ = {
+			isa = PBXGroup;
+			children = (
+				20D5DCC3178D64EA0040B2E7 /* AppDelegate.h */,
+				20D5DCC4178D64EA0040B2E7 /* AppDelegate.m */,
+				20D5DCCC178D64EA0040B2E7 /* ViewController.h */,
+				20D5DCCD178D64EA0040B2E7 /* ViewController.m */,
+				20D5DCCF178D64EA0040B2E7 /* ViewController.xib */,
+				20D5DCBB178D64EA0040B2E7 /* Supporting Files */,
+			);
+			path = TestSwipe2;
+			sourceTree = "<group>";
+		};
+		20D5DCBB178D64EA0040B2E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				20D5DCBC178D64EA0040B2E7 /* TestSwipe2-Info.plist */,
+				20D5DCBD178D64EA0040B2E7 /* InfoPlist.strings */,
+				20D5DCC0178D64EA0040B2E7 /* main.m */,
+				20D5DCC2178D64EA0040B2E7 /* TestSwipe2-Prefix.pch */,
+				20D5DCC6178D64EA0040B2E7 /* Default.png */,
+				20D5DCC8178D64EA0040B2E7 /* Default@2x.png */,
+				20D5DCCA178D64EA0040B2E7 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		20D5DCB0178D64EA0040B2E7 /* TestSwipe2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20D5DCD4178D64EA0040B2E7 /* Build configuration list for PBXNativeTarget "TestSwipe2" */;
+			buildPhases = (
+				20D5DCAD178D64EA0040B2E7 /* Sources */,
+				20D5DCAE178D64EA0040B2E7 /* Frameworks */,
+				20D5DCAF178D64EA0040B2E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestSwipe2;
+			productName = TestSwipe2;
+			productReference = 20D5DCB1178D64EA0040B2E7 /* TestSwipe2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20D5DCA9178D64EA0040B2E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Jean-André Santoni";
+			};
+			buildConfigurationList = 20D5DCAC178D64EA0040B2E7 /* Build configuration list for PBXProject "TestSwipe2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 20D5DCA8178D64EA0040B2E7;
+			productRefGroup = 20D5DCB2178D64EA0040B2E7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				20D5DCB0178D64EA0040B2E7 /* TestSwipe2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		20D5DCAF178D64EA0040B2E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20D5DCBF178D64EA0040B2E7 /* InfoPlist.strings in Resources */,
+				20D5DCC7178D64EA0040B2E7 /* Default.png in Resources */,
+				20D5DCC9178D64EA0040B2E7 /* Default@2x.png in Resources */,
+				20D5DCCB178D64EA0040B2E7 /* Default-568h@2x.png in Resources */,
+				20D5DCD1178D64EA0040B2E7 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		20D5DCAD178D64EA0040B2E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20D5DCC1178D64EA0040B2E7 /* main.m in Sources */,
+				20D5DCC5178D64EA0040B2E7 /* AppDelegate.m in Sources */,
+				20D5DCCE178D64EA0040B2E7 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		20D5DCBD178D64EA0040B2E7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				20D5DCBE178D64EA0040B2E7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		20D5DCCF178D64EA0040B2E7 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				20D5DCD0178D64EA0040B2E7 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		20D5DCD2178D64EA0040B2E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		20D5DCD3178D64EA0040B2E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		20D5DCD5178D64EA0040B2E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TestSwipe2/TestSwipe2-Prefix.pch";
+				INFOPLIST_FILE = "TestSwipe2/TestSwipe2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		20D5DCD6178D64EA0040B2E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TestSwipe2/TestSwipe2-Prefix.pch";
+				INFOPLIST_FILE = "TestSwipe2/TestSwipe2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		20D5DCAC178D64EA0040B2E7 /* Build configuration list for PBXProject "TestSwipe2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20D5DCD2178D64EA0040B2E7 /* Debug */,
+				20D5DCD3178D64EA0040B2E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20D5DCD4178D64EA0040B2E7 /* Build configuration list for PBXNativeTarget "TestSwipe2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20D5DCD5178D64EA0040B2E7 /* Debug */,
+				20D5DCD6178D64EA0040B2E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 20D5DCA9178D64EA0040B2E7 /* Project object */;
+}
