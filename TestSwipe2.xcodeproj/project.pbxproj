@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20C68A3E178DF8E8002F0C25 /* backgroundnoise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20C68A3D178DF8E8002F0C25 /* backgroundnoise@2x.png */; };
 		20D5DCB5178D64EA0040B2E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D5DCB4178D64EA0040B2E7 /* UIKit.framework */; };
 		20D5DCB7178D64EA0040B2E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D5DCB6178D64EA0040B2E7 /* Foundation.framework */; };
 		20D5DCB9178D64EA0040B2E7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D5DCB8178D64EA0040B2E7 /* CoreGraphics.framework */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20C68A3D178DF8E8002F0C25 /* backgroundnoise@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundnoise@2x.png"; sourceTree = "<group>"; };
 		20D5DCB1178D64EA0040B2E7 /* TestSwipe2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestSwipe2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D5DCB4178D64EA0040B2E7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		20D5DCB6178D64EA0040B2E7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -83,6 +85,7 @@
 		20D5DCBA178D64EA0040B2E7 /* TestSwipe2 */ = {
 			isa = PBXGroup;
 			children = (
+				20C68A3D178DF8E8002F0C25 /* backgroundnoise@2x.png */,
 				20D5DCC3178D64EA0040B2E7 /* AppDelegate.h */,
 				20D5DCC4178D64EA0040B2E7 /* AppDelegate.m */,
 				20D5DCCC178D64EA0040B2E7 /* ViewController.h */,
@@ -163,6 +166,7 @@
 				20D5DCC9178D64EA0040B2E7 /* Default@2x.png in Resources */,
 				20D5DCCB178D64EA0040B2E7 /* Default-568h@2x.png in Resources */,
 				20D5DCD1178D64EA0040B2E7 /* ViewController.xib in Resources */,
+				20C68A3E178DF8E8002F0C25 /* backgroundnoise@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +302,7 @@
 				20D5DCD6178D64EA0040B2E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

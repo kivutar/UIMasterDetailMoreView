@@ -51,6 +51,9 @@ int state;
     _view2 = [[UITableView alloc] initWithFrame:state0view2];
     _view3 = [[UITableView alloc] initWithFrame:state0view3];
     
+    //_view1.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //_view1.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
+    
     _view2.layer.masksToBounds = NO;
     _view2.layer.shadowRadius = 5;
     _view2.layer.shadowOpacity = 0.5;
@@ -73,12 +76,11 @@ int state;
     _view2.delegate = self;
     _view3.delegate = self;
     
-    _view1.bounces = false;
+    /*_view1.bounces = false;
     _view2.bounces = false;
-    _view3.bounces = false;
+    _view3.bounces = false;*/
     
-    //_view1.backgroundColor = [UIColor grayColor];
-    //_view2.backgroundColor = [UIColor blueColor];
+    _view1.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"backgroundnoise.png"]];
 
     state = 0;
 
@@ -182,15 +184,52 @@ int state;
     return 10;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 140;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *ProductCellIdentifier = @"ProductCellIdentifier";
     
+    UILabel *mainLabel, *secondLabel;
+    UIImageView *photo;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductCellIdentifier];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProductCellIdentifier];
+
+        mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 40.0, 156.0, 18.0)];
+        mainLabel.tag = 1;
+        mainLabel.font = [UIFont boldSystemFontOfSize:18];
+        mainLabel.textColor = [UIColor whiteColor];
+        mainLabel.backgroundColor = [UIColor clearColor];
+        [cell.contentView addSubview:mainLabel];
+        
+        secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 65.0, 150.0, 32.0)];
+        secondLabel.tag = 2;
+        secondLabel.font = [UIFont systemFontOfSize:16.0];
+        secondLabel.textColor = [UIColor grayColor];
+        secondLabel.backgroundColor = [UIColor clearColor];
+        secondLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        secondLabel.numberOfLines = 0;
+        
+        CGRect currentFrame = secondLabel.frame;
+        CGSize max = CGSizeMake(secondLabel.frame.size.width, 150);
+        CGSize expected = [@"Lorem ipsum et dolor sit amet" sizeWithFont:secondLabel.font constrainedToSize:max lineBreakMode:secondLabel.lineBreakMode];
+        currentFrame.size.height = expected.height;
+        secondLabel.frame = currentFrame;
+        
+        [cell.contentView addSubview:secondLabel];
+        
+    } else {
+        mainLabel = (UILabel *)[cell.contentView viewWithTag:1];
+        secondLabel = (UILabel *)[cell.contentView viewWithTag:2];
     }
+    
+    mainLabel.text = @"Chapter 3";
+    secondLabel.text = @"Lorem ipsum et dolor sit amet";
     
     [self configureCell:cell atIndexPath:indexPath];
     
@@ -199,7 +238,7 @@ int state;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    cell.textLabel.text = [NSString stringWithFormat:@"Empty Cell %d", indexPath.row];
+    //cell.textLabel.text = [NSString stringWithFormat:@"Empty Cell %d", indexPath.row];
 }
 
 #pragma mark - UITableViewDelegate Methods
