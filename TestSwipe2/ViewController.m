@@ -204,14 +204,14 @@ int state;
         mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 40.0, 200.0, 18.0)];
         mainLabel.tag = 1;
         mainLabel.font = [UIFont boldSystemFontOfSize:18];
-        mainLabel.textColor = [UIColor whiteColor];
+        mainLabel.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
         mainLabel.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:mainLabel];
         
         secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 65.0, 200.0, 32.0)];
         secondLabel.tag = 2;
         secondLabel.font = [UIFont systemFontOfSize:16.0];
-        secondLabel.textColor = [UIColor grayColor];
+        secondLabel.textColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:1.0];
         secondLabel.backgroundColor = [UIColor clearColor];
         secondLabel.lineBreakMode = NSLineBreakByWordWrapping;
         secondLabel.numberOfLines = 0;
