@@ -54,6 +54,8 @@ int state;
     _view1.separatorStyle = UITableViewCellSeparatorStyleNone;
     _view1.showsVerticalScrollIndicator = NO;
     _view1.tableFooterView = [[[UIView alloc] init] autorelease];
+    _view1.contentInset = UIEdgeInsetsMake(15.0,0.0,0,0.0);    
+    _view1.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"backgroundnoise.png"]];
     
     _view2.layer.masksToBounds = NO;
     _view2.layer.shadowRadius = 5;
@@ -80,8 +82,6 @@ int state;
     /*_view1.bounces = false;
     _view2.bounces = false;
     _view3.bounces = false;*/
-    
-    _view1.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"backgroundnoise.png"]];
 
     state = 0;
 
@@ -201,14 +201,14 @@ int state;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProductCellIdentifier];
 
-        mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(130.0, 35.0, 170.0, 18.0)];
+        mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(135.0, 35.0, 170.0, 18.0)];
         mainLabel.tag = 1;
         mainLabel.font = [UIFont boldSystemFontOfSize:16];
         mainLabel.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
         mainLabel.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:mainLabel];
         
-        secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(130.0, 60.0, 170.0, 32.0)];
+        secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(135.0, 60.0, 170.0, 32.0)];
         secondLabel.tag = 2;
         secondLabel.font = [UIFont systemFontOfSize:14];
         secondLabel.textColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:1.0];
