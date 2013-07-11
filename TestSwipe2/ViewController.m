@@ -201,23 +201,23 @@ int state;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProductCellIdentifier];
 
-        mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 40.0, 200.0, 18.0)];
+        mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(130.0, 35.0, 170.0, 18.0)];
         mainLabel.tag = 1;
-        mainLabel.font = [UIFont boldSystemFontOfSize:18];
+        mainLabel.font = [UIFont boldSystemFontOfSize:16];
         mainLabel.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
         mainLabel.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:mainLabel];
         
-        secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 65.0, 200.0, 32.0)];
+        secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(130.0, 60.0, 170.0, 32.0)];
         secondLabel.tag = 2;
-        secondLabel.font = [UIFont systemFontOfSize:16.0];
+        secondLabel.font = [UIFont systemFontOfSize:14];
         secondLabel.textColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:1.0];
         secondLabel.backgroundColor = [UIColor clearColor];
         secondLabel.lineBreakMode = NSLineBreakByWordWrapping;
         secondLabel.numberOfLines = 0;
         
         CGRect currentFrame = secondLabel.frame;
-        CGSize max = CGSizeMake(secondLabel.frame.size.width, 200);
+        CGSize max = CGSizeMake(secondLabel.frame.size.width, 170);
         CGSize expected = [@"Lorem ipsum et dolor sit amet" sizeWithFont:secondLabel.font constrainedToSize:max lineBreakMode:secondLabel.lineBreakMode];
         currentFrame.size.height = expected.height;
         secondLabel.frame = currentFrame;
@@ -232,6 +232,14 @@ int state;
         image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chapter.png"]];
         image.tag = 4;
         image.frame = CGRectMake(27, 12, 95, 105);
+        image.layer.masksToBounds = NO;
+        image.layer.shadowOffset = CGSizeMake(0, 0);
+        image.layer.shadowRadius = 5;
+        image.layer.shadowOpacity = 0.5;
+        image.layer.shouldRasterize = YES;
+        image.layer.rasterizationScale = [UIScreen mainScreen].scale;
+        image.layer.shadowPath = [UIBezierPath bezierPathWithRect:image.bounds].CGPath;
+        
         [cell.contentView addSubview:image];
         
         
