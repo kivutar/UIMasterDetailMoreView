@@ -54,6 +54,7 @@ int state;
     //_view1.separatorStyle = UITableViewCellSeparatorStyleNone;
     //_view1.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
     _view1.showsVerticalScrollIndicator = NO;
+    _view1.tableFooterView = [[[UIView alloc] init] autorelease];
     
     _view2.layer.masksToBounds = NO;
     _view2.layer.shadowRadius = 5;
@@ -182,7 +183,7 @@ int state;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
