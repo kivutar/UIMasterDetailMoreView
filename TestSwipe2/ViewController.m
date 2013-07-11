@@ -51,8 +51,7 @@ int state;
     _view2 = [[UITableView alloc] initWithFrame:state0view2];
     _view3 = [[UITableView alloc] initWithFrame:state0view3];
     
-    //_view1.separatorStyle = UITableViewCellSeparatorStyleNone;
-    //_view1.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
+    _view1.separatorStyle = UITableViewCellSeparatorStyleNone;
     _view1.showsVerticalScrollIndicator = NO;
     _view1.tableFooterView = [[[UIView alloc] init] autorelease];
     
@@ -188,7 +187,7 @@ int state;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 140;
+    return 130;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -196,7 +195,7 @@ int state;
     static NSString *ProductCellIdentifier = @"ProductCellIdentifier";
     
     UILabel *mainLabel, *secondLabel;
-    UIImageView *photo;
+    UIImageView *photo, *separator;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductCellIdentifier];
     
     if (cell == nil) {
@@ -225,9 +224,15 @@ int state;
         
         [cell.contentView addSubview:secondLabel];
         
+        separator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"separator.png"]];
+        separator.tag = 3;
+        separator.frame = CGRectMake(27, 129, 265.0, 2.0);
+        [cell.contentView addSubview:separator];
+        
     } else {
         mainLabel = (UILabel *)[cell.contentView viewWithTag:1];
         secondLabel = (UILabel *)[cell.contentView viewWithTag:2];
+        separator = (UIImageView *)[cell.contentView viewWithTag:3];
     }
     
     mainLabel.text = @"Chapter 3";
