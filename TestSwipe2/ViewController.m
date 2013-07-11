@@ -35,16 +35,16 @@ int state;
 {
     [super viewDidLoad];
 
-    state0view1 = CGRectMake(  0, 0,  256, 1024);
-    state1view1 = CGRectMake(  0, 0,  256, 1024);
-    state2view1 = CGRectMake(  0, 0,  256, 1024);
+    state0view1 = CGRectMake(  0, 0,  320, 1024);
+    state1view1 = CGRectMake(  0, 0,  320, 1024);
+    state2view1 = CGRectMake(  0, 0,  320, 1024);
 
-    state0view2 = CGRectMake(256, 0,  256, 1024);
-    state1view2 = CGRectMake(  0, 0,  256, 1024);
-    state2view2 = CGRectMake(  0, 0,  256, 1024);
+    state0view2 = CGRectMake(320, 0,  448, 1024);
+    state1view2 = CGRectMake(  0, 0,  448, 1024);
+    state2view2 = CGRectMake(  0, 0,  448, 1024);
 
-    state0view3 = CGRectMake(512, 0, 1024, 1024);
-    state1view3 = CGRectMake(256, 0, 1024, 1024);
+    state0view3 = CGRectMake(768, 0, 1024, 1024);
+    state1view3 = CGRectMake(448, 0, 1024, 1024);
     state2view3 = CGRectMake(  0, 0, 1024, 1024);
     
     _view1 = [[UITableView alloc] initWithFrame:state0view1];
@@ -200,14 +200,14 @@ int state;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProductCellIdentifier];
 
-        mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 40.0, 156.0, 18.0)];
+        mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 40.0, 200.0, 18.0)];
         mainLabel.tag = 1;
         mainLabel.font = [UIFont boldSystemFontOfSize:18];
         mainLabel.textColor = [UIColor whiteColor];
         mainLabel.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:mainLabel];
         
-        secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 65.0, 150.0, 32.0)];
+        secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 65.0, 200.0, 32.0)];
         secondLabel.tag = 2;
         secondLabel.font = [UIFont systemFontOfSize:16.0];
         secondLabel.textColor = [UIColor grayColor];
@@ -216,7 +216,7 @@ int state;
         secondLabel.numberOfLines = 0;
         
         CGRect currentFrame = secondLabel.frame;
-        CGSize max = CGSizeMake(secondLabel.frame.size.width, 150);
+        CGSize max = CGSizeMake(secondLabel.frame.size.width, 200);
         CGSize expected = [@"Lorem ipsum et dolor sit amet" sizeWithFont:secondLabel.font constrainedToSize:max lineBreakMode:secondLabel.lineBreakMode];
         currentFrame.size.height = expected.height;
         secondLabel.frame = currentFrame;
