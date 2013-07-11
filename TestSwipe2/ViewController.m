@@ -195,7 +195,7 @@ int state;
     static NSString *ProductCellIdentifier = @"ProductCellIdentifier";
     
     UILabel *mainLabel, *secondLabel;
-    UIImageView *photo, *separator;
+    UIImageView *image, *separator;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductCellIdentifier];
     
     if (cell == nil) {
@@ -229,10 +229,17 @@ int state;
         separator.frame = CGRectMake(27, 129, 265.0, 2.0);
         [cell.contentView addSubview:separator];
         
+        image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chapter.png"]];
+        image.tag = 4;
+        image.frame = CGRectMake(27, 12, 95, 105);
+        [cell.contentView addSubview:image];
+        
+        
     } else {
         mainLabel = (UILabel *)[cell.contentView viewWithTag:1];
         secondLabel = (UILabel *)[cell.contentView viewWithTag:2];
         separator = (UIImageView *)[cell.contentView viewWithTag:3];
+        image = (UIImageView *)[cell.contentView viewWithTag:4];
     }
     
     mainLabel.text = @"Chapter 3";
