@@ -58,14 +58,16 @@ int state;
     _view1.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"backgroundnoise.png"]];
     
     _view2.layer.masksToBounds = NO;
-    _view2.layer.shadowRadius = 5;
+    _view2.layer.shadowOffset = CGSizeMake(0, 0);
+    _view2.layer.shadowRadius = 10;
     _view2.layer.shadowOpacity = 0.5;
     _view2.layer.shouldRasterize = YES;
     _view2.layer.rasterizationScale = [UIScreen mainScreen].scale;
     _view2.layer.shadowPath = [UIBezierPath bezierPathWithRect:_view2.bounds].CGPath;
     
     _view3.layer.masksToBounds = NO;
-    _view3.layer.shadowRadius = 5;
+    _view3.layer.shadowOffset = CGSizeMake(0, 0);
+    _view3.layer.shadowRadius = 10;
     _view3.layer.shadowOpacity = 0.5;
     _view3.layer.shouldRasterize = YES;
     _view3.layer.rasterizationScale = [UIScreen mainScreen].scale;
@@ -253,6 +255,11 @@ int state;
     mainLabel.text = @"Chapter 3";
     secondLabel.text = @"Lorem ipsum et dolor sit amet";
     
+    UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
+    myBackView.backgroundColor = [UIColor colorWithRed:0.0 green:0.64 blue:0.80 alpha:1];
+    cell.selectedBackgroundView = myBackView;
+    [myBackView release];
+    
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
@@ -267,7 +274,7 @@ int state;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
