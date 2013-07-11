@@ -53,6 +53,7 @@ int state;
     
     //_view1.separatorStyle = UITableViewCellSeparatorStyleNone;
     //_view1.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
+    _view1.showsVerticalScrollIndicator = NO;
     
     _view2.layer.masksToBounds = NO;
     _view2.layer.shadowRadius = 5;
