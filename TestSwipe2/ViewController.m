@@ -198,16 +198,7 @@
         case UIGestureRecognizerStateEnded: {
             CGFloat v = [gestureRecognizer velocityInView:_view2].x;
 
-            if (v < 0) {
-                [UIView animateWithDuration:0.15 animations:^{
-                    CGRect frame2 = _view2.frame;
-                    frame2.origin.x = 0;
-                    _view2.frame = frame2;
-                    CGRect frame3 = _view3.frame;
-                    frame3.origin.x = 448;
-                    _view3.frame = frame3;
-                }];
-            } else {
+            if (_view2.frame.origin.x >= 320) {
                 [UIView animateWithDuration:0.15 animations:^{
                     CGRect frame = _view2.frame;
                     frame.origin.x = 320;
@@ -216,6 +207,42 @@
                     frame3.origin.x = 768;
                     _view3.frame = frame3;
                 }];
+            } else {
+                if (v < 0) {
+                    [UIView animateWithDuration:0.15 animations:^{
+                        CGRect frame2 = _view2.frame;
+                        frame2.origin.x = 0;
+                        _view2.frame = frame2;
+                        CGRect frame3 = _view3.frame;
+                        frame3.origin.x = 448;
+                        _view3.frame = frame3;
+                    }];
+                } else if (v > 0) {
+                    [UIView animateWithDuration:0.15 animations:^{
+                        CGRect frame = _view2.frame;
+                        frame.origin.x = 320;
+                        _view2.frame = frame;
+                        CGRect frame3 = _view3.frame;
+                        frame3.origin.x = 768;
+                        _view3.frame = frame3;
+                    }];
+                } else if (v == 0) {
+                    if (_view2.frame.origin.x <= 320/2) {
+                        CGRect frame2 = _view2.frame;
+                        frame2.origin.x = 0;
+                        _view2.frame = frame2;
+                        CGRect frame3 = _view3.frame;
+                        frame3.origin.x = 448;
+                        _view3.frame = frame3;
+                    } else {
+                        CGRect frame = _view2.frame;
+                        frame.origin.x = 320;
+                        _view2.frame = frame;
+                        CGRect frame3 = _view3.frame;
+                        frame3.origin.x = 768;
+                        _view3.frame = frame3;
+                    }
+                }
             }
             
             break;
