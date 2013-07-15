@@ -9,53 +9,28 @@
 #import "ViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic, strong) UITableView *view1;
 @property (nonatomic, strong) UITableView *view2;
 @property (nonatomic, strong) UITableView *view3;
+@property (nonatomic, readwrite, strong) UIPanGestureRecognizer *panGR;
 @end
 
 @implementation ViewController
-
-CGRect state0view1;
-CGRect state1view1;
-CGRect state2view1;
-
-CGRect state0view2;
-CGRect state1view2;
-CGRect state2view2;
-
-CGRect state0view3;
-CGRect state1view3;
-CGRect state2view3;
-
-int state;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    state0view1 = CGRectMake(  0, 0,  320, 1024);
-    state1view1 = CGRectMake(  0, 0,  320, 1024);
-    state2view1 = CGRectMake(  0, 0,  320, 1024);
-
-    state0view2 = CGRectMake(320, 0,  448, 1024);
-    state1view2 = CGRectMake(  0, 0,  448, 1024);
-    state2view2 = CGRectMake(  0, 0,  448, 1024);
-
-    state0view3 = CGRectMake(768, 0, 1024, 1024);
-    state1view3 = CGRectMake(448, 0, 1024, 1024);
-    state2view3 = CGRectMake(  0, 0, 1024, 1024);
-    
-    _view1 = [[UITableView alloc] initWithFrame:state0view1];
-    _view2 = [[UITableView alloc] initWithFrame:state0view2];
-    _view3 = [[UITableView alloc] initWithFrame:state0view3];
+    _view1 = [[UITableView alloc] initWithFrame:CGRectMake(  0, 0,  320, 1024)];
+    _view2 = [[UITableView alloc] initWithFrame:CGRectMake(320, 0,  448, 1024)];
+    _view3 = [[UITableView alloc] initWithFrame:CGRectMake(768, 0, 1024, 1024)];
     
     _view1.separatorStyle = UITableViewCellSeparatorStyleNone;
     _view1.showsVerticalScrollIndicator = NO;
     _view1.tableFooterView = [[[UIView alloc] init] autorelease];
-    _view1.contentInset = UIEdgeInsetsMake(15.0,0.0,0,0.0);    
-    _view1.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"backgroundnoise.png"]];
+    _view1.contentInset = UIEdgeInsetsMake(15.0,0.0,0,0.0);
+    _view1.backgroundColor = [UIColor clearColor];
     
     _view2.layer.masksToBounds = NO;
     _view2.layer.shadowOffset = CGSizeMake(0, 0);
@@ -80,98 +55,17 @@ int state;
     _view1.delegate = self;
     _view2.delegate = self;
     _view3.delegate = self;
-    
-    /*_view1.bounces = false;
-    _view2.bounces = false;
-    _view3.bounces = false;*/
 
-    state = 0;
-
-    UISwipeGestureRecognizer *view2swipeleft = [[[UISwipeGestureRecognizer alloc]
-                                                  initWithTarget:self
-                                                  action:@selector(view2swipeleft:)] autorelease];
-    [view2swipeleft setDirection:UISwipeGestureRecognizerDirectionLeft];
-    [_view2 addGestureRecognizer:view2swipeleft];
-
-    UISwipeGestureRecognizer *view2swiperight = [[[UISwipeGestureRecognizer alloc]
-                                                   initWithTarget:self
-                                                   action:@selector(view2swiperight:)] autorelease];
-    [view2swiperight setDirection:UISwipeGestureRecognizerDirectionRight];
-    [_view2 addGestureRecognizer:view2swiperight];
-
-    UISwipeGestureRecognizer *view3swipeleft = [[[UISwipeGestureRecognizer alloc]
-                                                  initWithTarget:self
-                                                  action:@selector(view3swipeleft:)] autorelease];
-    [view3swipeleft setDirection:UISwipeGestureRecognizerDirectionLeft];
-    [_view3 addGestureRecognizer:view3swipeleft];
-
-    UISwipeGestureRecognizer *view3swiperight = [[[UISwipeGestureRecognizer alloc]
-                                                   initWithTarget:self
-                                                   action:@selector(view3swiperight:)] autorelease];
-    [view3swiperight setDirection:UISwipeGestureRecognizerDirectionRight];
-    [_view3 addGestureRecognizer:view3swiperight];
+    _panGR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+    _panGR.maximumNumberOfTouches = 1;
+    _panGR.delegate = self;
+    [_view2 addGestureRecognizer:_panGR];
     
     [self.view addSubview:_view1];
     [self.view addSubview:_view2];
     [self.view addSubview:_view3];
-}
-
-- (void)view2swipeleft:(UITapGestureRecognizer *)recognizer {
-    if (state == 0) {
-        [UIView animateWithDuration:0.25 animations:^{
-            _view2.frame = state1view2;
-            _view3.frame = state1view3;
-            state = 1;
-        }];
-    } else if (state == 1) {
-        [UIView animateWithDuration:0.25 animations:^{
-            _view2.frame = state2view2;
-            _view3.frame = state2view3;
-            state = 2;
-        }];
-    }
-}
-
-- (void)view2swiperight:(UITapGestureRecognizer *)recognizer {
-    if (state == 1) {
-        [UIView animateWithDuration:0.25 animations:^{
-            _view2.frame = state0view2;
-            _view3.frame = state0view3;
-            state = 0;
-        }];
-    }
-}
-
-- (void)view3swipeleft:(UITapGestureRecognizer *)recognizer {
-    if (state == 0) {
-        [UIView animateWithDuration:0.25 animations:^{
-            _view2.frame = state2view2;
-            _view3.frame = state2view3;
-            state = 2;
-        }];
-    } else if (state == 1) {
-        [UIView animateWithDuration:0.25 animations:^{
-            _view2.frame = state2view2;
-            _view3.frame = state2view3;
-            state = 2;
-        }];
-    }
-}
-
-- (void)view3swiperight:(UITapGestureRecognizer *)recognizer {
-    if (state == 1) {
-        [UIView animateWithDuration:0.25 animations:^{
-            _view2.frame = state0view2;
-            _view3.frame = state0view3;
-            state = 0;
-        }];
-    } else if (state == 2) {
-        [UIView animateWithDuration:0.25 animations:^{
-            _view2.frame = state1view2;
-            _view3.frame = state1view3;
-            state = 1;
-        }];
-    }
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"backgroundnoise.png"]];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -276,5 +170,77 @@ int state;
 {
     //[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+
+#pragma mark - UIGestureRecognizer delegate interface
+
+- (void)handleGesture:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    switch (gestureRecognizer.state) {
+        case UIGestureRecognizerStatePossible: {
+            break;
+        }
+            
+        case UIGestureRecognizerStateBegan: {
+            break;
+        }
+            
+        case UIGestureRecognizerStateChanged: {
+            CGFloat trx = [gestureRecognizer translationInView:_view2].x;
+
+            _view2.frame = CGRectOffset(_view2.frame, trx, 0);
+            _view3.frame = CGRectOffset(_view3.frame, trx, 0);
+            [gestureRecognizer setTranslation:CGPointZero inView:_view2];
+            
+            break;
+        }
+            
+        case UIGestureRecognizerStateEnded: {
+            CGFloat v = [gestureRecognizer velocityInView:_view2].x;
+
+            if (v < 0) {
+                [UIView animateWithDuration:0.15 animations:^{
+                    CGRect frame2 = _view2.frame;
+                    frame2.origin.x = 0;
+                    _view2.frame = frame2;
+                    CGRect frame3 = _view3.frame;
+                    frame3.origin.x = 448;
+                    _view3.frame = frame3;
+                }];
+            } else {
+                [UIView animateWithDuration:0.15 animations:^{
+                    CGRect frame = _view2.frame;
+                    frame.origin.x = 320;
+                    _view2.frame = frame;
+                    CGRect frame3 = _view3.frame;
+                    frame3.origin.x = 768;
+                    _view3.frame = frame3;
+                }];
+            }
+            
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    /* get a static reference to the "hidden" UITableViewCellReorderControl class */
+    static Class reorderControlClass = nil;
+    if (reorderControlClass == nil) {
+        reorderControlClass = NSClassFromString(@"UITableViewCellReorderControl");
+    }
+    
+    if ([touch.view isKindOfClass:[UISlider class]] ||
+        [touch.view isKindOfClass:reorderControlClass]) {
+        // prevent recognizing touches on the slider / table view reorder control
+        return NO;
+    }
+    return YES;
+}
+
 
 @end
