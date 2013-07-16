@@ -40,7 +40,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.tableFooterView = [[[UIView alloc] init] autorelease];
-    self.tableView.contentInset = UIEdgeInsetsMake(15.0,0.0,0,0.0);
+    self.tableView.contentInset = UIEdgeInsetsMake(15.0,15.0,0,-15.0);
     self.tableView.backgroundColor = [UIColor clearColor];
 }
 
@@ -74,14 +74,14 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProductCellIdentifier];
         
-        mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(135.0, 35.0, 170.0, 18.0)];
+        mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(120.0, 35.0, 170.0, 18.0)];
         mainLabel.tag = 1;
         mainLabel.font = [UIFont boldSystemFontOfSize:16];
         mainLabel.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
         mainLabel.backgroundColor = [UIColor clearColor];
         [cell.contentView addSubview:mainLabel];
         
-        secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(135.0, 60.0, 170.0, 32.0)];
+        secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(120.0, 60.0, 170.0, 32.0)];
         secondLabel.tag = 2;
         secondLabel.font = [UIFont systemFontOfSize:14];
         secondLabel.textColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:1.0];
@@ -99,12 +99,12 @@
         
         separator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"separator.png"]];
         separator.tag = 3;
-        separator.frame = CGRectMake(27, 129, 265.0, 2.0);
-        [cell.contentView addSubview:separator];
+        separator.frame = CGRectMake(12, 129, 265.0, 2.0);
+        //[cell.contentView addSubview:separator];
         
         image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chapter.png"]];
         image.tag = 4;
-        image.frame = CGRectMake(27, 12, 95, 105);
+        image.frame = CGRectMake(12, 12, 95, 105);
         image.layer.masksToBounds = NO;
         image.layer.shadowOffset = CGSizeMake(0, 0);
         image.layer.shadowRadius = 5;
@@ -128,6 +128,7 @@
     
     UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
     myBackView.backgroundColor = [UIColor colorWithRed:0.0 green:0.64 blue:0.80 alpha:1];
+    myBackView.layer.cornerRadius = 4;
     cell.selectedBackgroundView = myBackView;
     [myBackView release];
     

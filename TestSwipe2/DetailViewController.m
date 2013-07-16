@@ -86,6 +86,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProductCellIdentifier];
     }
     
+    UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
+    myBackView.backgroundColor = [UIColor colorWithRed:0.0 green:0.64 blue:0.80 alpha:1];
+    cell.selectedBackgroundView = myBackView;
+    [myBackView release];
+    
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
