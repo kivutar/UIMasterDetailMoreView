@@ -7,6 +7,7 @@
 //
 
 #import "MasterViewController.h"
+#import "UIMasterViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface MasterViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -65,66 +66,40 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ProductCellIdentifier = @"ProductCellIdentifier";
-    
-    UILabel *mainLabel, *secondLabel;
-    UIImageView *image, *separator;
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductCellIdentifier];
+    static NSString *MasterCellIdentifier = @"MasterCell";
+
+    UIMasterViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MasterCellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProductCellIdentifier];
-        
-        mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(120.0, 35.0, 170.0, 18.0)];
-        mainLabel.tag = 1;
-        mainLabel.font = [UIFont boldSystemFontOfSize:16];
-        mainLabel.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
-        mainLabel.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:mainLabel];
-        
-        secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(120.0, 60.0, 170.0, 32.0)];
-        secondLabel.tag = 2;
-        secondLabel.font = [UIFont systemFontOfSize:14];
-        secondLabel.textColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:1.0];
-        secondLabel.backgroundColor = [UIColor clearColor];
-        secondLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        secondLabel.numberOfLines = 0;
-        
-        CGRect currentFrame = secondLabel.frame;
-        CGSize max = CGSizeMake(secondLabel.frame.size.width, 170);
-        CGSize expected = [@"Lorem ipsum et dolor sit amet" sizeWithFont:secondLabel.font constrainedToSize:max lineBreakMode:secondLabel.lineBreakMode];
-        currentFrame.size.height = expected.height;
-        secondLabel.frame = currentFrame;
-        
-        [cell.contentView addSubview:secondLabel];
-        
-        separator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"separator.png"]];
-        separator.tag = 3;
-        separator.frame = CGRectMake(12, 129, 265.0, 2.0);
-        //[cell.contentView addSubview:separator];
-        
-        image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chapter.png"]];
-        image.tag = 4;
-        image.frame = CGRectMake(12, 12, 95, 105);
-        image.layer.masksToBounds = NO;
-        image.layer.shadowOffset = CGSizeMake(0, 0);
-        image.layer.shadowRadius = 5;
-        image.layer.shadowOpacity = 0.5;
-        image.layer.shouldRasterize = YES;
-        image.layer.rasterizationScale = [UIScreen mainScreen].scale;
-        image.layer.shadowPath = [UIBezierPath bezierPathWithRect:image.bounds].CGPath;
-        
-        [cell.contentView addSubview:image];
-        
-        
-    } else {
-        mainLabel = (UILabel *)[cell.contentView viewWithTag:1];
-        secondLabel = (UILabel *)[cell.contentView viewWithTag:2];
-        separator = (UIImageView *)[cell.contentView viewWithTag:3];
-        image = (UIImageView *)[cell.contentView viewWithTag:4];
+        cell = [[[UIMasterViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MasterCellIdentifier] autorelease];
     }
+
+    cell.primaryLabel.text = [NSString stringWithFormat:@"Chapitre %i", indexPath.row + 1];
     
-    mainLabel.text = @"Chapter 3";
-    secondLabel.text = @"Lorem ipsum et dolor sit amet";
+    switch (indexPath.row) {
+        case 0:
+            cell.secondaryLabel.text = @"Introduction";
+            //cell.myImageView.image = [UIImage imageNamed:@"meeting_color.png"];
+            break;
+        case 1:
+            cell.secondaryLabel.text = @"Conseils Techniques";
+            //cell.myImageView.image = [UIImage imageNamed:@"call_color.png"];
+            break;
+        case 2:
+            cell.secondaryLabel.text = @"Le top à manches kimono lorem ipsum";
+            //cell.myImageView.image = [UIImage imageNamed:@"calendar_color.png"];
+            break;
+        case 3:
+            cell.secondaryLabel.text = @"La cape cache-cœur";
+            //cell.myImageView.image = [UIImage imageNamed:@"call_color.png"];
+            break;
+        case 4:
+            cell.secondaryLabel.text = @"La robe « Y » sur deux lignes svp";
+            //cell.myImageView.image = [UIImage imageNamed:@"calendar_color.png"];
+            break;
+        default:
+            break;
+    }
     
     UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
     myBackView.backgroundColor = [UIColor colorWithRed:0.0 green:0.64 blue:0.80 alpha:1];
