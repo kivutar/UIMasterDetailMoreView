@@ -19,13 +19,11 @@
     if (self) {
         primaryLabel = [[UILabel alloc] initWithFrame:CGRectMake(120.0, 35.0, 170.0, 18.0)];
         primaryLabel.font = [UIFont boldSystemFontOfSize:16];
-        primaryLabel.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
         primaryLabel.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:primaryLabel];
         
         secondaryLabel = [[UILabel alloc] initWithFrame:CGRectMake(120.0, 60.0, 170.0, 32.0)];
         secondaryLabel.font = [UIFont systemFontOfSize:14];
-        secondaryLabel.textColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:1.0];
         secondaryLabel.backgroundColor = [UIColor clearColor];
         secondaryLabel.lineBreakMode = NSLineBreakByWordWrapping;
         secondaryLabel.numberOfLines = 0;
@@ -34,14 +32,13 @@
         imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chapter.png"]];
         imageView.frame = CGRectMake(12, 12, 95, 105);
         imageView.layer.masksToBounds = NO;
-        imageView.layer.shadowOffset = CGSizeMake(0, 0);
-        imageView.layer.shadowRadius = 5;
-        imageView.layer.shadowOpacity = 0.5;
+        imageView.layer.shadowOffset = CGSizeMake(0, 1);
+        imageView.layer.shadowRadius = 3;
+        imageView.layer.shadowOpacity = 0.35;
         imageView.layer.shouldRasterize = YES;
         imageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
         imageView.layer.shadowPath = [UIBezierPath bezierPathWithRect:imageView.bounds].CGPath;
         [self.contentView addSubview:imageView];
-        
     }
     return self;
 }
@@ -50,7 +47,21 @@
 {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    if (selected) {
+        self.primaryLabel.textColor = [UIColor whiteColor];
+        self.primaryLabel.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.25];
+        self.primaryLabel.shadowOffset = CGSizeMake(0.0, -1.0);
+        self.secondaryLabel.textColor = [UIColor colorWithRed:0.75 green:0.90 blue:0.93 alpha:1.0];
+        self.secondaryLabel.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.25];
+        self.secondaryLabel.shadowOffset = CGSizeMake(0.0, -1.0);
+    } else {
+        self.primaryLabel.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
+        self.primaryLabel.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.25];
+        self.primaryLabel.shadowOffset = CGSizeMake(0.0, 1.0);
+        self.secondaryLabel.textColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:1.0];
+        self.secondaryLabel.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.25];
+        self.secondaryLabel.shadowOffset = CGSizeMake(0.0, -1.0);
+    }
 }
 
 @end
