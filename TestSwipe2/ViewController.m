@@ -253,21 +253,9 @@
     }
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    /* get a static reference to the "hidden" UITableViewCellReorderControl class */
-    static Class reorderControlClass = nil;
-    if (reorderControlClass == nil) {
-        reorderControlClass = NSClassFromString(@"UITableViewCellReorderControl");
-    }
-    
-    if ([touch.view isKindOfClass:[UISlider class]] ||
-        [touch.view isKindOfClass:reorderControlClass]) {
-        // prevent recognizing touches on the slider / table view reorder control
-        return NO;
-    }
-    return YES;
+- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
+    CGPoint tr = [gestureRecognizer translationInView:_view2];
+    return (fabsf(tr.x) > fabsf(tr.y));
 }
-
 
 @end
