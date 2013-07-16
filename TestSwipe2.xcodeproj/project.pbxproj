@@ -21,6 +21,7 @@
 		20D5DCCB178D64EA0040B2E7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D5DCCA178D64EA0040B2E7 /* Default-568h@2x.png */; };
 		20D5DCCE178D64EA0040B2E7 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5DCCD178D64EA0040B2E7 /* RootViewController.m */; };
 		20D5DCD1178D64EA0040B2E7 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D5DCCF178D64EA0040B2E7 /* RootViewController.xib */; };
+		20F6DB93179549350014CE1C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F6DB92179549350014CE1C /* MasterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		20D5DCCC178D64EA0040B2E7 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		20D5DCCD178D64EA0040B2E7 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		20D5DCD0178D64EA0040B2E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		20F6DB91179549350014CE1C /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		20F6DB92179549350014CE1C /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 				20D5DCCC178D64EA0040B2E7 /* RootViewController.h */,
 				20D5DCCD178D64EA0040B2E7 /* RootViewController.m */,
 				20D5DCCF178D64EA0040B2E7 /* RootViewController.xib */,
+				20F6DB91179549350014CE1C /* MasterViewController.h */,
+				20F6DB92179549350014CE1C /* MasterViewController.m */,
 				20D5DCBB178D64EA0040B2E7 /* Supporting Files */,
 			);
 			path = TestSwipe2;
@@ -188,6 +193,7 @@
 				20D5DCC1178D64EA0040B2E7 /* main.m in Sources */,
 				20D5DCC5178D64EA0040B2E7 /* AppDelegate.m in Sources */,
 				20D5DCCE178D64EA0040B2E7 /* RootViewController.m in Sources */,
+				20F6DB93179549350014CE1C /* MasterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

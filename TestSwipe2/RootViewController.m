@@ -7,10 +7,11 @@
 //
 
 #import "RootViewController.h"
+#import "MasterViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface RootViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
-@property (nonatomic, strong) UITableView *view1;
+@property (nonatomic, strong) MasterViewController *masterViewController;
 @property (nonatomic, strong) UITableView *view2;
 @property (nonatomic, strong) UITableView *view3;
 @property (nonatomic, readwrite, strong) UIPanGestureRecognizer *panGR;
@@ -22,15 +23,8 @@
 {
     [super viewDidLoad];
 
-    _view1 = [[UITableView alloc] initWithFrame:CGRectMake(  0, 0,  320, 1024)];
     _view2 = [[UITableView alloc] initWithFrame:CGRectMake(320, 0,  448, 1024)];
     _view3 = [[UITableView alloc] initWithFrame:CGRectMake(768, 0, 1024, 1024)];
-    
-    _view1.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _view1.showsVerticalScrollIndicator = NO;
-    _view1.tableFooterView = [[[UIView alloc] init] autorelease];
-    _view1.contentInset = UIEdgeInsetsMake(15.0,0.0,0,0.0);
-    _view1.backgroundColor = [UIColor clearColor];
     
     _view2.layer.masksToBounds = NO;
     _view2.layer.shadowOffset = CGSizeMake(0, 0);
@@ -48,11 +42,9 @@
     _view3.layer.rasterizationScale = [UIScreen mainScreen].scale;
     _view3.layer.shadowPath = [UIBezierPath bezierPathWithRect:_view2.bounds].CGPath;
     
-    _view1.dataSource = self;
     _view2.dataSource = self;
     _view3.dataSource = self;
     
-    _view1.delegate = self;
     _view2.delegate = self;
     _view3.delegate = self;
 
@@ -61,9 +53,14 @@
     _panGR.delegate = self;
     [_view2 addGestureRecognizer:_panGR];
     
-    [self.view addSubview:_view1];
+    self.masterViewController = [[MasterViewController alloc] init];
+    [self addChildViewController:self.masterViewController];
+    [self.view addSubview:self.masterViewController.tableView];
+    [self.masterViewController didMoveToParentViewController:self];
+
     [self.view addSubview:_view2];
     [self.view addSubview:_view3];
+
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"backgroundnoise.png"]];
     
 }
@@ -78,82 +75,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 130;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *ProductCellIdentifier = @"ProductCellIdentifier";
-    
-    UILabel *mainLabel, *secondLabel;
-    UIImageView *image, *separator;
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductCellIdentifier];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProductCellIdentifier];
-
-        mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(135.0, 35.0, 170.0, 18.0)];
-        mainLabel.tag = 1;
-        mainLabel.font = [UIFont boldSystemFontOfSize:16];
-        mainLabel.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
-        mainLabel.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:mainLabel];
-        
-        secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(135.0, 60.0, 170.0, 32.0)];
-        secondLabel.tag = 2;
-        secondLabel.font = [UIFont systemFontOfSize:14];
-        secondLabel.textColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:1.0];
-        secondLabel.backgroundColor = [UIColor clearColor];
-        secondLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        secondLabel.numberOfLines = 0;
-        
-        CGRect currentFrame = secondLabel.frame;
-        CGSize max = CGSizeMake(secondLabel.frame.size.width, 170);
-        CGSize expected = [@"Lorem ipsum et dolor sit amet" sizeWithFont:secondLabel.font constrainedToSize:max lineBreakMode:secondLabel.lineBreakMode];
-        currentFrame.size.height = expected.height;
-        secondLabel.frame = currentFrame;
-        
-        [cell.contentView addSubview:secondLabel];
-        
-        separator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"separator.png"]];
-        separator.tag = 3;
-        separator.frame = CGRectMake(27, 129, 265.0, 2.0);
-        [cell.contentView addSubview:separator];
-        
-        image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chapter.png"]];
-        image.tag = 4;
-        image.frame = CGRectMake(27, 12, 95, 105);
-        image.layer.masksToBounds = NO;
-        image.layer.shadowOffset = CGSizeMake(0, 0);
-        image.layer.shadowRadius = 5;
-        image.layer.shadowOpacity = 0.5;
-        image.layer.shouldRasterize = YES;
-        image.layer.rasterizationScale = [UIScreen mainScreen].scale;
-        image.layer.shadowPath = [UIBezierPath bezierPathWithRect:image.bounds].CGPath;
-        
-        [cell.contentView addSubview:image];
-        
-        
-    } else {
-        mainLabel = (UILabel *)[cell.contentView viewWithTag:1];
-        secondLabel = (UILabel *)[cell.contentView viewWithTag:2];
-        separator = (UIImageView *)[cell.contentView viewWithTag:3];
-        image = (UIImageView *)[cell.contentView viewWithTag:4];
     }
-    
-    mainLabel.text = @"Chapter 3";
-    secondLabel.text = @"Lorem ipsum et dolor sit amet";
-    
-    UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
-    myBackView.backgroundColor = [UIColor colorWithRed:0.0 green:0.64 blue:0.80 alpha:1];
-    cell.selectedBackgroundView = myBackView;
-    [myBackView release];
-    
+
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
@@ -161,7 +95,7 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    //cell.textLabel.text = [NSString stringWithFormat:@"Empty Cell %d", indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"Empty Cell %d", indexPath.row];
 }
 
 #pragma mark - UITableViewDelegate Methods
