@@ -32,15 +32,29 @@
     [self.detailViewController didMoveToParentViewController:self];
 
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(768, 0, 1024, 1024)];
-    self.webView.layer.masksToBounds = NO;
-    self.webView.layer.shadowOffset = CGSizeMake(0, 0);
-    self.webView.layer.shadowRadius = 10;
-    self.webView.layer.shadowOpacity = 0.5;
-    self.webView.layer.shouldRasterize = YES;
-    self.webView.layer.rasterizationScale = [UIScreen mainScreen].scale;
-    self.webView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.webView.bounds].CGPath;
-    [self.view addSubview:self.webView];
+    self.webView.backgroundColor = [UIColor clearColor];
 
+    for (UIView *view in [self.webView subviews]) {
+        view.clipsToBounds = NO;
+        view.layer.masksToBounds = NO;
+    }
+    
+    for (UIView *view in [[[self.webView subviews] objectAtIndex:0] subviews]) {
+        if ([view isKindOfClass:[UIImageView class]]) {
+            view.hidden = YES;
+        } else {
+            view.clipsToBounds = NO;
+            view.layer.masksToBounds = NO;
+            view.layer.shadowOffset = CGSizeMake(0, 0);
+            view.layer.shadowRadius = 10;
+            view.layer.shadowOpacity = 0.5;
+            view.layer.shouldRasterize = YES;
+            view.layer.rasterizationScale = [UIScreen mainScreen].scale;
+            view.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.webView.bounds].CGPath;
+        }
+    }
+    [self.view addSubview:self.webView];
+    
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"backgroundnoise.png"]];
 }
 

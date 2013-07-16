@@ -35,7 +35,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.tableView.frame = CGRectMake(320, 0, 1024, 1024);
+    self.tableView.frame = CGRectMake(320, 0, 448, 1024);
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.94 green:0.93 blue:0.93 alpha:1.0];
     
     self.tableView.layer.masksToBounds = NO;
     self.tableView.layer.shadowOffset = CGSizeMake(0, 0);
