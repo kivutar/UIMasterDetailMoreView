@@ -9,7 +9,7 @@
 #import "MasterViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface MasterViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
+@interface MasterViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -34,16 +34,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.tableView.frame = CGRectMake(0, 0, 320, 1024);
+    self.tableView.frame = CGRectMake(0, 0, 1024, 1024);
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.tableFooterView = [[[UIView alloc] init] autorelease];
     self.tableView.contentInset = UIEdgeInsetsMake(15.0,0.0,0,0.0);
     self.tableView.backgroundColor = [UIColor clearColor];
-    
-    self.tableView.delegate = self;
-
 }
 
 - (void)didReceiveMemoryWarning
