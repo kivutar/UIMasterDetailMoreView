@@ -66,13 +66,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return 3;
 }
 
@@ -101,45 +99,6 @@
     cell.textLabel.text = [NSString stringWithFormat:@"Empty Cell %d", indexPath.row];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,12 +113,12 @@
      */
 }
 
-
 #pragma mark - UIGestureRecognizer delegate interface
 
 - (void)handleGesture:(UIPanGestureRecognizer *)gestureRecognizer
 {
     UIWebView* webView = ((RootViewController*) self.parentViewController).webView;
+    UITableView* masterView = ((RootViewController*) self.parentViewController).masterViewController.tableView;
     
     switch (gestureRecognizer.state) {
         case UIGestureRecognizerStatePossible: {
@@ -177,6 +136,10 @@
             webView.frame = CGRectOffset(webView.frame, trx, 0);
             [gestureRecognizer setTranslation:CGPointZero inView:self.tableView];
             
+            if (self.tableView.frame.origin.x >= 0 && self.tableView.frame.origin.x <= 200) {
+                masterView.alpha = self.tableView.frame.origin.x / 200.0;
+            }
+            
             break;
         }
 
@@ -191,6 +154,7 @@
                     CGRect frame3 = webView.frame;
                     frame3.origin.x = 768;
                     webView.frame = frame3;
+                    masterView.alpha = 1.0;
                 }];
             } else {
                 if (v < 0) {
@@ -201,6 +165,7 @@
                         CGRect frame3 = webView.frame;
                         frame3.origin.x = 448;
                         webView.frame = frame3;
+                        masterView.alpha = 0.0;
                     }];
                 } else if (v > 0) {
                     [UIView animateWithDuration:0.15 animations:^{
@@ -210,6 +175,7 @@
                         CGRect frame3 = webView.frame;
                         frame3.origin.x = 768;
                         webView.frame = frame3;
+                        masterView.alpha = 1.0;
                     }];
                 } else if (v == 0) {
                     if (self.tableView.frame.origin.x <= 320/2) {
@@ -219,6 +185,7 @@
                         CGRect frame3 = webView.frame;
                         frame3.origin.x = 448;
                         webView.frame = frame3;
+                        masterView.alpha = 0.0;
                     } else {
                         CGRect frame = self.tableView.frame;
                         frame.origin.x = 320;
@@ -226,6 +193,7 @@
                         CGRect frame3 = webView.frame;
                         frame3.origin.x = 768;
                         webView.frame = frame3;
+                        masterView.alpha = 1.0;
                     }
                 }
             }
