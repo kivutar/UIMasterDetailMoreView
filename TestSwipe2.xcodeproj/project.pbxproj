@@ -19,8 +19,8 @@
 		20D5DCC7178D64EA0040B2E7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D5DCC6178D64EA0040B2E7 /* Default.png */; };
 		20D5DCC9178D64EA0040B2E7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D5DCC8178D64EA0040B2E7 /* Default@2x.png */; };
 		20D5DCCB178D64EA0040B2E7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D5DCCA178D64EA0040B2E7 /* Default-568h@2x.png */; };
-		20D5DCCE178D64EA0040B2E7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5DCCD178D64EA0040B2E7 /* ViewController.m */; };
-		20D5DCD1178D64EA0040B2E7 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D5DCCF178D64EA0040B2E7 /* ViewController.xib */; };
+		20D5DCCE178D64EA0040B2E7 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5DCCD178D64EA0040B2E7 /* RootViewController.m */; };
+		20D5DCD1178D64EA0040B2E7 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D5DCCF178D64EA0040B2E7 /* RootViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,9 +40,9 @@
 		20D5DCC6178D64EA0040B2E7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		20D5DCC8178D64EA0040B2E7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		20D5DCCA178D64EA0040B2E7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		20D5DCCC178D64EA0040B2E7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		20D5DCCD178D64EA0040B2E7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		20D5DCD0178D64EA0040B2E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		20D5DCCC178D64EA0040B2E7 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		20D5DCCD178D64EA0040B2E7 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		20D5DCD0178D64EA0040B2E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +94,9 @@
 				2001DC3C178F03310082C9F8 /* chapter@2x.png */,
 				20D5DCC3178D64EA0040B2E7 /* AppDelegate.h */,
 				20D5DCC4178D64EA0040B2E7 /* AppDelegate.m */,
-				20D5DCCC178D64EA0040B2E7 /* ViewController.h */,
-				20D5DCCD178D64EA0040B2E7 /* ViewController.m */,
-				20D5DCCF178D64EA0040B2E7 /* ViewController.xib */,
+				20D5DCCC178D64EA0040B2E7 /* RootViewController.h */,
+				20D5DCCD178D64EA0040B2E7 /* RootViewController.m */,
+				20D5DCCF178D64EA0040B2E7 /* RootViewController.xib */,
 				20D5DCBB178D64EA0040B2E7 /* Supporting Files */,
 			);
 			path = TestSwipe2;
@@ -171,7 +171,7 @@
 				20D5DCC7178D64EA0040B2E7 /* Default.png in Resources */,
 				20D5DCC9178D64EA0040B2E7 /* Default@2x.png in Resources */,
 				20D5DCCB178D64EA0040B2E7 /* Default-568h@2x.png in Resources */,
-				20D5DCD1178D64EA0040B2E7 /* ViewController.xib in Resources */,
+				20D5DCD1178D64EA0040B2E7 /* RootViewController.xib in Resources */,
 				20C68A3E178DF8E8002F0C25 /* backgroundnoise@2x.png in Resources */,
 				2001DC3B178EFA780082C9F8 /* separator@2x.png in Resources */,
 				2001DC3D178F03310082C9F8 /* chapter@2x.png in Resources */,
@@ -187,7 +187,7 @@
 			files = (
 				20D5DCC1178D64EA0040B2E7 /* main.m in Sources */,
 				20D5DCC5178D64EA0040B2E7 /* AppDelegate.m in Sources */,
-				20D5DCCE178D64EA0040B2E7 /* ViewController.m in Sources */,
+				20D5DCCE178D64EA0040B2E7 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,12 +202,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		20D5DCCF178D64EA0040B2E7 /* ViewController.xib */ = {
+		20D5DCCF178D64EA0040B2E7 /* RootViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				20D5DCD0178D64EA0040B2E7 /* en */,
 			);
-			name = ViewController.xib;
+			name = RootViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

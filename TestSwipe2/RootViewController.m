@@ -6,17 +6,17 @@
 //  Copyright (c) 2013 Jean-André Santoni. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "RootViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
+@interface RootViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic, strong) UITableView *view1;
 @property (nonatomic, strong) UITableView *view2;
 @property (nonatomic, strong) UITableView *view3;
 @property (nonatomic, readwrite, strong) UIPanGestureRecognizer *panGR;
 @end
 
-@implementation ViewController
+@implementation RootViewController
 
 - (void)viewDidLoad
 {
