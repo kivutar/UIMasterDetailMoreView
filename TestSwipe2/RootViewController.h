@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MasterViewController.h"
+#import "DetailViewController.h"
 
 @interface RootViewController : UIViewController
-
+@property (nonatomic, strong) MasterViewController *masterViewController;
+@property (nonatomic, strong) DetailViewController *detailViewController;
+@property (nonatomic, strong) UIWebView *webView;
 @end

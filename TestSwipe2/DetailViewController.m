@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "RootViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface DetailViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
@@ -150,25 +151,27 @@
 
 - (void)handleGesture:(UIPanGestureRecognizer *)gestureRecognizer
 {
+    UIWebView* webView = ((RootViewController*) self.parentViewController).webView;
+    
     switch (gestureRecognizer.state) {
         case UIGestureRecognizerStatePossible: {
             break;
         }
-            
+
         case UIGestureRecognizerStateBegan: {
             break;
         }
-            
+
         case UIGestureRecognizerStateChanged: {
             CGFloat trx = [gestureRecognizer translationInView:self.tableView].x;
             
             self.tableView.frame = CGRectOffset(self.tableView.frame, trx, 0);
-            //_view3.frame = CGRectOffset(_view3.frame, trx, 0);
+            webView.frame = CGRectOffset(webView.frame, trx, 0);
             [gestureRecognizer setTranslation:CGPointZero inView:self.tableView];
             
             break;
         }
-            
+
         case UIGestureRecognizerStateEnded: {
             CGFloat v = [gestureRecognizer velocityInView:self.tableView].x;
             
@@ -177,9 +180,9 @@
                     CGRect frame = self.tableView.frame;
                     frame.origin.x = 320;
                     self.tableView.frame = frame;
-                    //CGRect frame3 = self.tableView.frame;
-                    //frame3.origin.x = 768;
-                    //self.tableView.frame = frame3;
+                    CGRect frame3 = webView.frame;
+                    frame3.origin.x = 768;
+                    webView.frame = frame3;
                 }];
             } else {
                 if (v < 0) {
@@ -187,34 +190,34 @@
                         CGRect frame2 = self.tableView.frame;
                         frame2.origin.x = 0;
                         self.tableView.frame = frame2;
-                        //CGRect frame3 = _view3.frame;
-                        //frame3.origin.x = 448;
-                        //_view3.frame = frame3;
+                        CGRect frame3 = webView.frame;
+                        frame3.origin.x = 448;
+                        webView.frame = frame3;
                     }];
                 } else if (v > 0) {
                     [UIView animateWithDuration:0.15 animations:^{
                         CGRect frame = self.tableView.frame;
                         frame.origin.x = 320;
                         self.tableView.frame = frame;
-                        //CGRect frame3 = _view3.frame;
-                        //frame3.origin.x = 768;
-                        //_view3.frame = frame3;
+                        CGRect frame3 = webView.frame;
+                        frame3.origin.x = 768;
+                        webView.frame = frame3;
                     }];
                 } else if (v == 0) {
                     if (self.tableView.frame.origin.x <= 320/2) {
                         CGRect frame2 = self.tableView.frame;
                         frame2.origin.x = 0;
                         self.tableView.frame = frame2;
-                        //CGRect frame3 = _view3.frame;
-                        //frame3.origin.x = 448;
-                        //_view3.frame = frame3;
+                        CGRect frame3 = webView.frame;
+                        frame3.origin.x = 448;
+                        webView.frame = frame3;
                     } else {
                         CGRect frame = self.tableView.frame;
                         frame.origin.x = 320;
                         self.tableView.frame = frame;
-                        //CGRect frame3 = _view3.frame;
-                        //frame3.origin.x = 768;
-                        //_view3.frame = frame3;
+                        CGRect frame3 = webView.frame;
+                        frame3.origin.x = 768;
+                        webView.frame = frame3;
                     }
                 }
             }

@@ -7,17 +7,15 @@
 //
 
 #import "RootViewController.h"
-#import "MasterViewController.h"
-#import "DetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface RootViewController ()
-@property (nonatomic, strong) MasterViewController *masterViewController;
-@property (nonatomic, strong) DetailViewController *detailViewController;
-@property (nonatomic, strong) UIWebView *webView;
+
 @end
 
 @implementation RootViewController
+
+@synthesize masterViewController, detailViewController, webView;
 
 - (void)viewDidLoad
 {
